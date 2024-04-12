@@ -1,4 +1,7 @@
+import 'package:counter_app/utils.dart';
 import 'package:hive/hive.dart';
+
+part 'profile.g.dart';
 
 @HiveType(typeId: 1)
 class Profile extends HiveObject {
@@ -36,4 +39,17 @@ class Profile extends HiveObject {
     required this.goalCaloriesPerDay,
     this.isLastUsed = false,
   });
+
+  // Profile guest() {
+  //   name = "guest";
+  //   age = 0;
+  //   height = 0;
+  //   height = weight;
+  //   gender = "";
+  //   id = generateRandomString(8);
+  //   goalCaloriesPerDay = 0;
+  //   isLastUsed = true;
+
+  //   return this;
+  // }
 }
