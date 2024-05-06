@@ -11,6 +11,8 @@ import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
   // init hive
   if (!kIsWeb) {
     if (Platform.isAndroid) {
@@ -41,14 +43,14 @@ class MainApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       routes: {
         '/': (context) => Home(),
-        '/profile': (context) => ProfilePage(),
+        '/profile': (context) => const ProfilePage(),
       },
       initialRoute: Hive.box<Profile>("profiles")
               .values
               .any((element) => element.isLastUsed)
-          ? "/profile"
-          : "/",
-      home: Home(),
+          ? "/"
+          : "/profile",
+      // home: Home(),
     );
   }
 }
